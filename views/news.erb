@@ -18,25 +18,40 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Location</title>
+    <title>Hello World</title>
   </head>
   <body>
 
-    <div class = "jumbotron jumbotron-fluid jumbotron-index1">
+    <div class = "jumbotron jumbotron-fluid jumbotron-index3">
         <div class="container mt-5">
             <div class = "row1"> 
                 <div class = "col1">
-                    <h1 class = "h1_1">Location</h1>  
-                    <h3 class = "h3_1">Specify a location to find out the weather forecast and local news!</h3>
-                </div>
-            </div>
-            <div class = "row2">
-                <div class = "col2">
-                    <form action ="/news">
-                        <label>Enter location name:</label>
-                        <input type class = "text1" ="text" name="location">
-                        <button type ="submit" class="btn btn-primary button1">Look Up!</button>
-                    </form>
+                 
+                <h1>Current Weather</h1> 
+                        <p> 
+                            <ul>
+                            <li> In <%= @timezone %>, it is currently <%= @current_temp %>&#176;F and <%= @current_conditions %>.</li>
+                            </ul>
+                        </p>
+
+                <h1>Weekly Forecast</h1> 
+                        <p> 
+                            <ul>
+                                <% for item in @masterarrayweather%>
+                                <li>On <%= item[0]%>, there is a high temperature of <%= item[1] %>&#176;F and it is <%= item[2] %> </li>
+                                <% end %>
+                            </ul>
+                            
+                        </p>
+                    <h1>News</h1> 
+                        <p> 
+                            <ul>
+                                <% for item in @masterarraynews%>
+                                <li> <a href=<%= item[1]%>> <%= item[0]%> </a></li>
+                                <% end %>
+                            </ul>
+                        </p>
+                    
                 </div>
             </div>
         </div>
