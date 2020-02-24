@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Anton|Fira+Sans+Extra+Condensed|Roboto:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:700|Roboto:700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -18,27 +18,22 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Location</title>
+    <title>Error</title>
   </head>
-  <body class = "locationbackground">
+  <body>
 
-    <div class = "jumbotron jumbotron-fluid jumbotron-location">
-        <div class = "container mt-5">
+    <div class = "jumbotron jumbotron-fluid jumbotron-error">
+        <div class="container mt-5">
+            <div class = "row3"> 
+                <div class = "col3">  
+                    <h1 class = "error">Something went wrong...</h1> 
+                    <p> 
+                        <h3 class = "error"> <%=@errormessage%> </h3>
+                    </p>
 
-            <div class = "row1"> 
-                <div class = "col1">
-                    <h1 class = "h1_1">Location</h1>  
-                    <h3 class = "h3_1">Specify a location to find out the weather forecast and top news articles!</h3>
-                </div>
-            </div>
-
-            <div class = "row2">
-                <div class = "col2">
-                    <form action ="/news">
-                        <label class = "specifylocation">Enter location name:</label>
-                        <input type class = "text1" = "text" name= "location">
-                        <button type = "submit" class = "btn btn-primary button1">Look Up!</button>
-                    </form>
+                    <p>
+                        <a class="btn btn-danger" href="/">Go Back!</a>
+                    </p>
                 </div>
             </div>
         </div>

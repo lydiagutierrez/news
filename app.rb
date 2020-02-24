@@ -14,22 +14,16 @@ get "/" do
   view "ask"
 end
 
-get "/results" do
-    view "results"
-end
-
 get "/news" do 
+
     unless params["location"].empty?
         results = Geocoder.search(params["location"])
 
         unless results.first.nil?
             
-            @lat_long = results.first.coordinates
-            @lat = @lat_long[0]
-            @long = @lat_long[1]
-            @coordinates = "#{@lat}, #{@long}"
-            
-            forecast = ForecastIO.forecast("#{@lat}", "#{@long}").to_hash
+            @lat_long = results.first.coordinates           
+            forecast = ForecastIO.forecast("#{@lat_long[0]}", "#{@lat_long[1]}").to_hash
+
             @timezone = forecast["timezone"]
             @current_temp = forecast["currently"]["temperature"]
             @current_conditions = forecast["currently"]["summary"]
@@ -39,7 +33,7 @@ get "/news" do
             require 'date'
             for day in forecast["daily"]["data"]
                 @masterarrayweather[i] = [Time.at(day["time"]).strftime("%m/%d/%Y"),day["temperatureHigh"],day["summary"]]
-                i = i+1
+                i=i+1
             end
 
             @masterarraynews = Array.new
@@ -51,10 +45,12 @@ get "/news" do
             view "news"
 
         else 
-            "Your location was not valid, please go back and try again."
+            @errormessage = "Your location was not valid, please go back and try again."
+            view "error"
         end
 
     else
-        "Please go back and enter a location to show a result."
+        @errormessage = "Please go back and enter a location to show a result."
+        view "error"
     end
 end

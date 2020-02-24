@@ -1,15 +1,88 @@
-.jumbotron-index1 {
-    background-color: white
-    }
+.jumbotron-location {
+    background-color:transparent;
+}
+
+.locationbackground{
+    background-image: linear-gradient(to right, #99ccff, #ccccff);
+}
+
 .button1 { 
-    border-color: white;
-    margin:auto
+    border-color:black;
+    margin:auto;
+    box-align: center;
+}
+
+label.specifylocation { 
+    text-align: center;
+    font-weight: bolder;
+    font-size:larger;
+    font-family: 'Roboto';
 }
 
 .text1 {
-    border-color: slategray;
-    
+    border-color: black;
+    box-align: center;
+    padding-top: 2px;
+    padding-bottom: 6px;
+    padding-left: 5px;
 }
+
 .h1_1 {
-    font-weight: bold
+    font-weight: bold;
+    font-family: 'Anton';
+    padding-bottom: 3px;
+}
+
+.h3_1 {
+    font-family: 'VFira Sans Extra Condensed';
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.jumbotron-error {
+    background-color: white;
+}
+
+h1.error {
+    color: red;
+    font-family: 'Roboto';
+}
+
+h3.error {
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-family: 'Merriweather';
+}
+
+.newsbackground {
+    background-color: antiquewhite;
+}
+
+.jumbotron-news {
+    background-color: antiquewhite;
+}
+
+h1.currentweather {
+    font-family: 'Alfa Slab One';
+}
+
+li.currentforecast {
+    font-weight: bold;
+    font-family: 'Roboto';
+}
+
+h1.weeklyforecast {
+    font-family: 'Alfa Slab One'
+}
+
+li.weekly {
+    font-family: 'Lato';
+}
+
+h1.news {
+    font-family: 'Anton'
+}
+
+li.news {
+    font-family: 'Fjalla One'
 }

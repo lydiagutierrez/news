@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Anton|Fjalla+One|Lato|Roboto:700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -18,40 +18,51 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Hello World</title>
+    <title>News</title>
   </head>
-  <body>
+  <body class = "newsbackground">
 
-    <div class = "jumbotron jumbotron-fluid jumbotron-index3">
+    <div class = "jumbotron jumbotron-fluid jumbotron-news">
         <div class="container mt-5">
-            <div class = "row1"> 
-                <div class = "col1">
-                 
-                <h1>Current Weather</h1> 
+            <div class = "row4"> 
+                <div class = "col4">
+                    <p>
+                        <h1 class="currentweather">Current Weather</h1> 
+                            <p> 
+                                <ul>
+                                    <li class="currentforecast"> In <%= @timezone %>, it is currently <%= @current_temp %>&#176;F and <%= @current_conditions %>.</li>
+                                </ul>
+                            </p>
+                    </p>
+                    <p>
+                        <h1 class="weeklyforecast">Weekly Forecast</h1> 
+                            <p> 
+                                <ul>
+                                    <% for item in @masterarrayweather%>
+                                    <li class = "weekly">On <%= item[0]%>, there is a high temperature of <%= item[1] %>&#176;F and it is <%= item[2] %> </li>
+                                    <% end %>
+                                </ul>   
+                            </p>
+                    </p>                           
+                </div>
+            </div>
+            <div class = "row5">
+                <div class = "col5">
+                     <h1 class = "news">Top News</h1> 
                         <p> 
                             <ul>
-                            <li> In <%= @timezone %>, it is currently <%= @current_temp %>&#176;F and <%= @current_conditions %>.</li>
-                            </ul>
-                        </p>
-
-                <h1>Weekly Forecast</h1> 
-                        <p> 
-                            <ul>
-                                <% for item in @masterarrayweather%>
-                                <li>On <%= item[0]%>, there is a high temperature of <%= item[1] %>&#176;F and it is <%= item[2] %> </li>
+                               <% for item in @masterarraynews%>
+                               <li class = "news"> <a href=<%= item[1]%>> <%= item[0]%> </a></li>
                                 <% end %>
                             </ul>
-                            
                         </p>
-                    <h1>News</h1> 
-                        <p> 
-                            <ul>
-                                <% for item in @masterarraynews%>
-                                <li> <a href=<%= item[1]%>> <%= item[0]%> </a></li>
-                                <% end %>
-                            </ul>
+                </div>
+            </div>
+            <div class = "row6">
+                <div class = "col6">
+                    <p>
+                            <a class="btn btn-primary" href="/">Go Back!</a>
                         </p>
-                    
                 </div>
             </div>
         </div>
